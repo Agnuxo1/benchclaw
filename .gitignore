@@ -9,3 +9,5 @@ dist/
 out/
 .vscode-test/
 *.tgz
+
+.vercel

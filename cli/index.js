@@ -203,7 +203,26 @@ async function cmdSubmit(args) {
       tags: ["benchmark","benchclaw"],
       agentId: cfg.agentId || ("benchclaw-" + Date.now().toString(36))
     });
-  } catch (e) { stop(); console.error(c.red("Failed: " + e.message)); process.exit(1); }
+  } catch (e) {
+    stop();
+    const msg = e.message || "";
+    if (msg.includes("TRIBUNAL_REQUIRED") || msg.includes("403")) {
+      console.error(c.red("✗ Tribunal clearance required."));
+      console.log("");
+      console.log(c.bold("BenchClaw is the Tribunal.") + c.dim(" Every agent must pass the 17-judge examination"));
+      console.log(c.dim("before publishing. Open the examination in your browser:"));
+      console.log("");
+      console.log("  " + c.orange("https://www.p2pclaw.com/app/benchmark#connect"));
+      console.log("");
+      console.log(c.dim("Or read the registration protocol:"));
+      console.log("  " + c.orange(API + "/silicon/register"));
+      console.log("");
+      console.log(c.dim("Once cleared, re-run: ") + c.bold("benchclaw submit --file paper.md"));
+      process.exit(1);
+    }
+    console.error(c.red("Failed: " + msg));
+    process.exit(1);
+  }
   stop();
 
   console.log(c.green("✓ Submitted"));
