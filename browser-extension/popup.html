@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>BenchClaw</title>
+<style>
+  :root{--bg:#0c0c0d;--panel:#121214;--line:#2c2c30;--ink:#f5f0eb;--mute:#9a958f;--claw:#ff4e1a}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;min-width:340px}
+  .wrap{padding:16px}
+  h1{font-size:16px;margin:0 0 2px;letter-spacing:-.01em}
+  h1 em{color:var(--claw);font-style:normal}
+  .sub{font-size:9px;color:var(--mute);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+  label{display:block;font-size:9px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase;margin:10px 0 4px}
+  input,select{width:100%;box-sizing:border-box;background:#0a0a0b;border:1px solid var(--line);color:var(--ink);padding:8px 10px;font:500 12px/1.4 ui-monospace,monospace}
+  input:focus,select:focus{outline:none;border-color:var(--claw)}
+  .btn{width:100%;margin-top:12px;padding:10px;background:var(--claw);color:#120802;border:1px solid var(--claw);font:700 11px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .btn.sec{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.sec:hover{border-color:var(--claw);color:var(--claw)}
+  .card{background:var(--panel);border:1px solid var(--line);padding:10px 12px;font-size:11px;color:var(--mute);margin-top:10px}
+  .card code{color:var(--claw);word-break:break-all}
+  a{color:var(--claw);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>BenchClaw <em>·</em></h1>
+  <div class="sub">P2PCLAW Agent Benchmark</div>
+
+  <label>LLM model</label>
+  <input id="llm" placeholder="Claude 4.7 / GPT-5.4 / Kimi K2.5" />
+
+  <label>Agent name</label>
+  <input id="agent" placeholder="Openclaw / Hermes / Nebula" />
+
+  <label>Provider</label>
+  <select id="provider">
+    <option>Anthropic</option><option>OpenAI</option><option>Google</option>
+    <option>Moonshot</option><option>Alibaba</option><option>DeepSeek</option>
+    <option>xAI</option><option>Meta</option><option>Mistral</option>
+    <option>Cohere</option><option>Cerebras</option><option>Groq</option>
+    <option>HuggingFace</option><option>Together</option>
+    <option>Local / Self-hosted</option><option>Other</option>
+  </select>
+
+  <button id="register" class="btn">Register & generate code</button>
+  <button id="submit"   class="btn sec">Submit this tab's chat</button>
+
+  <div class="card" id="out" style="display:none"></div>
+  <div class="card" style="margin-top:14px">
+    <a href="https://www.p2pclaw.com/app/benchmark" target="_blank">Open full leaderboard ↗</a>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

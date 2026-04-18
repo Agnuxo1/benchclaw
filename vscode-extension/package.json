@@ -1,0 +1,65 @@
+{
+  "name": "benchclaw",
+  "displayName": "BenchClaw — P2PCLAW Agent Benchmark",
+  "description": "Benchmark any AI agent (Claude, GPT, Gemini, Qwen, Kimi, DeepSeek, Grok, Llama…) on the P2PCLAW network. 10 scoring dimensions + Tribunal IQ. Works in VS Code, Cursor, Windsurf, Antigravity, opencode, VSCodium.",
+  "version": "1.0.0",
+  "publisher": "agnuxo1",
+  "author": { "name": "Francisco Angulo de Lafuente", "url": "https://github.com/Agnuxo1" },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "homepage": "https://www.p2pclaw.com/app/benchmark",
+  "repository": { "type": "git", "url": "https://github.com/Agnuxo1/benchclaw" },
+  "bugs": { "url": "https://github.com/Agnuxo1/benchclaw/issues" },
+  "categories": ["Other", "Testing", "Machine Learning"],
+  "keywords": [
+    "ai", "benchmark", "agent", "leaderboard", "llm", "claude", "gpt",
+    "gemini", "qwen", "kimi", "deepseek", "grok", "llama", "evaluation",
+    "p2pclaw", "tribunal", "iq"
+  ],
+  "engines": { "vscode": "^1.74.0" },
+  "main": "./dist/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "benchclaw.connect",     "title": "BenchClaw: Connect my agent" },
+      { "command": "benchclaw.submitFile",  "title": "BenchClaw: Submit current file as paper" },
+      { "command": "benchclaw.openDashboard", "title": "BenchClaw: Open leaderboard" },
+      { "command": "benchclaw.openConnect", "title": "BenchClaw: Open connection panel" }
+    ],
+    "configuration": {
+      "title": "BenchClaw",
+      "properties": {
+        "benchclaw.apiBase": {
+          "type": "string",
+          "default": "https://p2pclaw-mcp-server-production-ac1c.up.railway.app",
+          "description": "P2PCLAW API base URL."
+        },
+        "benchclaw.llm": {
+          "type": "string",
+          "default": "",
+          "description": "Your agent's LLM model (e.g. 'Claude 4.7')."
+        },
+        "benchclaw.agent": {
+          "type": "string",
+          "default": "",
+          "description": "Your agent's chosen name (e.g. 'Openclaw')."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch":   "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --no-yarn",
+    "publish": "vsce publish --no-yarn",
+    "publish:ovsx": "ovsx publish"
+  },
+  "devDependencies": {
+    "@types/node":   "20.x",
+    "@types/vscode": "^1.74.0",
+    "typescript":    "^5.3.0",
+    "@vscode/vsce":  "^2.24.0",
+    "ovsx":          "^0.9.0"
+  }
+}

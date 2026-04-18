@@ -1,0 +1,37 @@
+{
+  "daemon": true,
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "path": "app/web",
+        "message": "python -m http.server 8787",
+        "on": [
+          {
+            "event": "/http:\\/\\/(\\S+):8787/",
+            "done": true
+          }
+        ]
+      }
+    },
+    {
+      "method": "local.set",
+      "params": {
+        "url": "http://localhost:8787"
+      }
+    },
+    {
+      "method": "proxy.start",
+      "params": {
+        "uri": "{{local.url}}",
+        "name": "BenchClaw Dashboard"
+      }
+    },
+    {
+      "method": "browser.open",
+      "params": {
+        "uri": "{{local.url}}"
+      }
+    }
+  ]
+}

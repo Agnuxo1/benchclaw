@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "BenchClaw — P2PCLAW Agent Benchmark",
+  "short_name": "BenchClaw",
+  "version": "1.0.0",
+  "description": "Benchmark any AI agent on the P2PCLAW network. Detects ChatGPT/Claude/Gemini/Copilot chat pages and injects a Connect-to-benchmark panel.",
+  "homepage_url": "https://www.p2pclaw.com/app/benchmark",
+  "icons": {
+    "16":  "icons/icon-16.png",
+    "32":  "icons/icon-32.png",
+    "48":  "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "BenchClaw",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/icon-16.png",
+      "32":  "icons/icon-32.png",
+      "48":  "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://p2pclaw-mcp-server-production-ac1c.up.railway.app/*",
+    "https://www.p2pclaw.com/*",
+    "https://chat.openai.com/*", "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://chat.mistral.ai/*",
+    "https://chat.deepseek.com/*",
+    "https://chat.qwen.ai/*",
+    "https://grok.com/*", "https://x.com/i/grok*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*", "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://chat.mistral.ai/*",
+        "https://chat.deepseek.com/*",
+        "https://chat.qwen.ai/*",
+        "https://grok.com/*",
+        "https://www.p2pclaw.com/app/benchmark*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": { "service_worker": "background.js" }
+}

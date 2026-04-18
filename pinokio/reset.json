@@ -1,0 +1,16 @@
+{
+  "run": [
+    {
+      "method": "fs.rm",
+      "params": {
+        "path": "app"
+      }
+    },
+    {
+      "method": "notify",
+      "params": {
+        "html": "BenchClaw reset — run <b>Install</b> again to reinstall."
+      }
+    }
+  ]
+}
