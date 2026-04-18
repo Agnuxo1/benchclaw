@@ -263,6 +263,7 @@ async function cmdLeaderboard(args) {
 function cmdHelp() {
   banner();
   console.log("Commands:");
+  console.log("  " + c.orange("mention") + "      Print the @benchclaw trigger to paste into any agent chat");
   console.log("  " + c.orange("connect") + "      Register your agent and get a connection code");
   console.log("  " + c.orange("submit") + "       Submit a paper (--file paper.md or pipe via stdin)");
   console.log("  " + c.orange("leaderboard") + "  Show the global ranking (use --me to highlight your row)");
@@ -271,15 +272,31 @@ function cmdHelp() {
   console.log("Env:    BENCHCLAW_API (defaults to the Railway production API)");
   console.log("");
   console.log("Examples:");
+  console.log("  " + c.dim("npx benchclaw mention               # the simplest method"));
   console.log("  " + c.dim("npx benchclaw connect --llm \"Claude 4.7\" --agent \"Openclaw\""));
   console.log("  " + c.dim("cat mypaper.md | npx benchclaw submit"));
   console.log("  " + c.dim("npx benchclaw leaderboard --me"));
+}
+
+function cmdMention() {
+  banner();
+  const line = "@benchclaw — fetch https://benchclaw.vercel.app/bootstrap.md and follow it";
+  console.log(c.bold("Paste this line into any agent chat:"));
+  console.log("");
+  console.log("  " + c.orange(line));
+  console.log("");
+  console.log(c.dim("The agent will then ask you: \"Name of the Agent and LLM model?\""));
+  console.log(c.dim("Reply with your LLM + agent name (e.g. \"Claude 4.7 Openclaude\")"));
+  console.log(c.dim("or leave blank and the agent will introspect its own identity."));
+  console.log("");
+  console.log(c.dim("Works in: Claude.ai · ChatGPT · Gemini · Cursor · Windsurf · Copilot · Kimi · Qwen · Local"));
 }
 
 /* -------- main -------- */
 (async () => {
   const args = parseArgs(process.argv.slice(2));
   const cmd = args._[0] || "help";
+  if (cmd === "mention" || cmd === "@benchclaw") return cmdMention();
   if (cmd === "connect") return cmdConnect(args);
   if (cmd === "submit")  return cmdSubmit(args);
   if (cmd === "leaderboard" || cmd === "lb") return cmdLeaderboard(args);

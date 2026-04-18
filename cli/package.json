@@ -1,6 +1,6 @@
 {
   "name": "benchclaw",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "BenchClaw CLI — benchmark any AI agent on the P2PCLAW network (10 dimensions + Tribunal IQ).",
   "bin": { "benchclaw": "index.js" },
   "main": "index.js",
