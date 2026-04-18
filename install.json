@@ -1,0 +1,36 @@
+{
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "echo Installing BenchClaw local dashboard..."
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "path": "cli",
+        "message": "npm install --no-audit --no-fund"
+      }
+    },
+    {
+      "method": "fs.write",
+      "params": {
+        "path": "installed.txt",
+        "text": "BenchClaw installed. Dashboard: http://localhost:8787"
+      }
+    },
+    {
+      "method": "notify",
+      "params": {
+        "html": "BenchClaw installed. Click <b>Start</b> to open the local dashboard."
+      }
+    },
+    {
+      "method": "browser.open",
+      "params": {
+        "uri": "https://www.p2pclaw.com/app/benchmark"
+      }
+    }
+  ]
+}

@@ -3,42 +3,99 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#1a1a1c"/>
-      <stop offset="1" stop-color="#0c0c0d"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
     </linearGradient>
-    <linearGradient id="claw" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff7020"/>
-      <stop offset="0.55" stop-color="#ff4e1a"/>
-      <stop offset="1" stop-color="#c33200"/>
+    <linearGradient id="claw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff8a3c"/>
+      <stop offset="0.5" stop-color="#ff5a1f"/>
+      <stop offset="1" stop-color="#b82a00"/>
+    </linearGradient>
+    <linearGradient id="clawDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6a20"/>
+      <stop offset="1" stop-color="#8a1f00"/>
     </linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f0c870"/>
-      <stop offset="1" stop-color="#c9a84c"/>
+      <stop offset="0" stop-color="#ffd87a"/>
+      <stop offset="1" stop-color="#c99420"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.35" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#ff5a1f" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
   </defs>
+
   <!-- Background -->
   <rect width="512" height="512" rx="96" fill="url(#bg)"/>
-  <!-- Radial accent -->
-  <circle cx="256" cy="220" r="180" fill="#ff4e1a" opacity="0.08"/>
-  <!-- Outer thin rings -->
-  <circle cx="256" cy="256" r="220" fill="none" stroke="#2c2c30" stroke-width="1.5"/>
-  <circle cx="256" cy="256" r="200" fill="none" stroke="#2c2c30" stroke-width="1" opacity="0.6"/>
-  <!-- Bars — benchmark chart -->
-  <g transform="translate(146 300)">
-    <rect x="0"   y="50" width="32" height="40" fill="url(#claw)" opacity="0.6"/>
-    <rect x="48"  y="20" width="32" height="70" fill="url(#claw)" opacity="0.8"/>
-    <rect x="96"  y="-10" width="32" height="100" fill="url(#claw)"/>
-    <rect x="144" y="-40" width="32" height="130" fill="url(#gold)"/>
-    <rect x="192" y="-20" width="32" height="110" fill="url(#claw)"/>
+  <rect width="512" height="512" rx="96" fill="url(#glow)"/>
+
+  <!-- Outer ring -->
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#2a2a2e" stroke-width="1.5"/>
+
+  <!-- Claw pincer — opens to the right, grabbing the bar chart -->
+  <!-- Upper pincer half -->
+  <path d="
+    M 110 160
+    C 110 120, 160 96, 220 96
+    C 300 96, 360 140, 360 210
+    C 360 240, 350 260, 330 270
+    L 290 250
+    C 300 240, 305 225, 305 210
+    C 305 175, 270 150, 220 150
+    C 180 150, 160 165, 160 185
+    L 160 210
+    Z
+  " fill="url(#claw)" stroke="#2a0a00" stroke-width="2"/>
+
+  <!-- Lower pincer half -->
+  <path d="
+    M 110 352
+    C 110 392, 160 416, 220 416
+    C 300 416, 360 372, 360 302
+    C 360 272, 350 252, 330 242
+    L 290 262
+    C 300 272, 305 287, 305 302
+    C 305 337, 270 362, 220 362
+    C 180 362, 160 347, 160 327
+    L 160 302
+    Z
+  " fill="url(#clawDark)" stroke="#2a0a00" stroke-width="2"/>
+
+  <!-- Pincer base (arm) -->
+  <path d="
+    M 80 160
+    L 160 160
+    L 160 352
+    L 80 352
+    C 60 352, 48 340, 48 320
+    L 48 192
+    C 48 172, 60 160, 80 160
+    Z
+  " fill="url(#clawDark)" stroke="#2a0a00" stroke-width="2"/>
+
+  <!-- Shell segments on the arm -->
+  <line x1="80" y1="200" x2="148" y2="200" stroke="#2a0a00" stroke-width="1.5" opacity="0.6"/>
+  <line x1="80" y1="240" x2="148" y2="240" stroke="#2a0a00" stroke-width="1.5" opacity="0.6"/>
+  <line x1="80" y1="280" x2="148" y2="280" stroke="#2a0a00" stroke-width="1.5" opacity="0.6"/>
+  <line x1="80" y1="320" x2="148" y2="320" stroke="#2a0a00" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Highlight on upper pincer -->
+  <path d="M 140 120 C 180 110, 230 115, 270 130" fill="none" stroke="#ffb884" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Bar chart inside the pincer — rising -->
+  <g transform="translate(200 256)">
+    <!-- baseline -->
+    <line x1="-10" y1="60" x2="150" y2="60" stroke="#3a3a3e" stroke-width="2"/>
+    <!-- bars (ascending) -->
+    <rect x="0"   y="20" width="22" height="40" rx="3" fill="url(#claw)" opacity="0.75"/>
+    <rect x="30"  y="-4" width="22" height="64" rx="3" fill="url(#claw)" opacity="0.85"/>
+    <rect x="60"  y="-28" width="22" height="88" rx="3" fill="url(#claw)"/>
+    <rect x="90"  y="-56" width="22" height="116" rx="3" fill="url(#gold)" stroke="#7a5500" stroke-width="1"/>
+    <rect x="120" y="-36" width="22" height="96" rx="3" fill="url(#claw)"/>
+    <!-- trend arrow -->
+    <path d="M 10 40 L 135 -48" stroke="#ffd87a" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    <path d="M 125 -48 L 140 -48 L 140 -33" stroke="#ffd87a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/>
   </g>
-  <!-- Crab-claw pincer (stylized) -->
-  <g transform="translate(256 180)">
-    <path d="M -80 0 C -80 -60 -30 -90 0 -90 C 30 -90 80 -60 80 0 C 80 40 50 70 10 70 L 10 45 L 45 45 C 55 45 55 30 45 30 L 10 30 L 10 -30 L -10 -30 L -10 30 L -45 30 C -55 30 -55 45 -45 45 L -10 45 L -10 70 C -50 70 -80 40 -80 0 Z"
-      fill="url(#claw)" stroke="#ffb08a" stroke-width="1.5" opacity="0.95"/>
-    <!-- Inner gold chip -->
-    <circle cx="0" cy="-45" r="18" fill="url(#gold)" stroke="#fff3d0" stroke-width="1.5"/>
-    <text x="0" y="-40" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" font-weight="800" fill="#120802">IQ</text>
-  </g>
-  <!-- Wordmark -->
-  <text x="256" y="452" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="44" font-weight="800" letter-spacing="2" fill="#f5f0eb">BenchClaw</text>
-  <text x="256" y="478" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="4" fill="#9a958f">AI AGENT BENCHMARK</text>
 </svg>
