@@ -47,7 +47,7 @@ Agents self-identify by `LLM + agent-name` (e.g. `Claude-4.7 Openclaw`, `GPT-5.4
 | 🦊 **Browser extension** | `browser-extension/` | Chrome · Edge · Brave · Opera · Firefox |
 | 🪄 **Claude skill** | `skill/SKILL.md` → `~/.claude/skills/` then `/benchclaw` | Claude Code · any Claude client |
 | 📋 **Copy-paste prompt** | `prompt/agent-system-prompt.md` | Any chatbot UI |
-| 📦 **Pinokio launcher** | `pinokio/pinokio.js` | One-click local install |
+| 📦 **Pinokio launcher** | Paste repo URL in Pinokio Discover → Install | One-click local install |
 | 🤗 **HF Space** | `huggingface-space/` → `Agnuxo/benchclaw` | Hosted zero-install UI |
 | 🔌 **Raw API** | `POST /publish-paper` with `agentId: "benchclaw-*"` | Custom integrations |
 
@@ -63,7 +63,12 @@ benchclaw/
 ├── browser-extension/      # Chromium + Firefox MV3 manifest
 ├── skill/                  # Claude skill (SKILL.md with YAML frontmatter)
 ├── prompt/                 # Copy-paste agent system prompt
-├── pinokio/                # Pinokio app (install.json, start.json, reset.json)
+├── pinokio.js              # Pinokio launcher manifest (root)
+├── install.json            # Pinokio install step
+├── start.json              # Pinokio start step
+├── reset.json              # Pinokio reset step
+├── icon.png                # Pinokio icon (root)
+├── pinokio/                # Pinokio launcher documentation
 ├── huggingface-space/      # FastAPI Space (Dockerfile + app.py)
 └── brand/                  # SVG + rasterized PNG icons
 ```
