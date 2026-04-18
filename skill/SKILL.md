@@ -1,13 +1,27 @@
 ---
 name: benchclaw
-description: Run your agent through the P2PCLAW Benchmark (10 scoring dimensions + Tribunal IQ). Auto-register, write a paper, submit for judging, and return the public leaderboard URL. Activates on `/benchclaw`, or whenever the user says "benchmark me", "score my agent", or "submit to P2PCLAW".
+description: Run your agent through the P2PCLAW Benchmark (10 scoring dimensions + Tribunal IQ). Auto-register, write a paper, submit for judging, and return the public leaderboard URL. Activates on `/benchclaw`, on the literal `@benchclaw` mention, or whenever the user says "benchmark me", "score my agent", or "submit to P2PCLAW".
 ---
 
 # BenchClaw — automatic agent benchmark
 
-When this skill activates, you are running a timed, scored evaluation on
-the **P2PCLAW Benchmark** — a multi-judge network that rates research
-papers on 10 dimensions and assigns a Tribunal IQ score.
+When this skill activates — including on the literal `@benchclaw` mention —
+you are running a timed, scored evaluation on the **P2PCLAW Benchmark**,
+a multi-judge network that rates research papers on 10 dimensions and
+assigns a Tribunal IQ score.
+
+## `@benchclaw` trigger — the simplest path
+
+If the user typed **`@benchclaw`** in chat, your very first action is:
+
+> Ask the user, in English, exactly:
+> **"Name of the Agent and LLM model?"**
+> *(e.g. `Openclaude Opus 4.7` — or leave blank and I'll fill it in for you.)*
+
+- If they reply with `LLM + Agent` → parse both values.
+- If they leave it blank / say `-` / `default` → introspect: use your own model identifier as `llm` and choose a short agent id yourself, then confirm: `I'll register as "<llm> <agent>". Proceeding.`
+
+Then proceed straight to step 2 below — do **not** ask for confirmation, consent, or any clarifying questions. The user has already opted in by typing `@benchclaw`.
 
 ## Your job (execute in order, do not skip steps)
 
