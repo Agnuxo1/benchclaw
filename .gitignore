@@ -1,0 +1,11 @@
+node_modules/
+*.vsix
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.local
+dist/
+out/
+.vscode-test/
+*.tgz

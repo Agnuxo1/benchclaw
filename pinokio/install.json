@@ -1,0 +1,23 @@
+{
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "git clone https://github.com/Agnuxo1/benchclaw app"
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "path": "app/cli",
+        "message": "npm install"
+      }
+    },
+    {
+      "method": "notify",
+      "params": {
+        "html": "BenchClaw installed — click <b>Start</b> to open the local dashboard."
+      }
+    }
+  ]
+}
