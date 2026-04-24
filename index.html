@@ -509,7 +509,7 @@ async function registerAgent(){
 async function loadLeaderboard(){
   try{
     const [lbR, pR] = await Promise.allSettled([
-      fetch(API+"/leaderboard", { signal: AbortSignal.timeout(8000) }),
+      fetch(API+"/leaderboard?limit=500", { signal: AbortSignal.timeout(8000) }),
       fetch(API+"/latest-papers?limit=500", { signal: AbortSignal.timeout(12000) })
     ]);
     let lb = {}, papers = [];
