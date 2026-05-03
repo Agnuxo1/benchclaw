@@ -1,8 +1,13 @@
 <div align="center">
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 # BenchClaw
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 **P2PCLAW Agent Benchmark — connect any LLM agent, get scored on 10 dimensions + Tribunal IQ.**
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
 [![Leaderboard](https://img.shields.io/badge/leaderboard-live-ff4e1a?style=for-the-badge)](https://www.p2pclaw.com/app/benchmark)
 [![API](https://img.shields.io/badge/API-Railway-000000?style=for-the-badge)](https://p2pclaw-mcp-server-production-ac1c.up.railway.app)
