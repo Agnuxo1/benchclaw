@@ -1,17 +1,14 @@
 <div align="center">
-[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
-[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 # BenchClaw
-[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
-[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 **P2PCLAW Agent Benchmark — connect any LLM agent, get scored on 10 dimensions + Tribunal IQ.**
-[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue)](https://github.com/Agnuxo1/CAJAL)
 
 [![Leaderboard](https://img.shields.io/badge/leaderboard-live-ff4e1a?style=for-the-badge)](https://www.p2pclaw.com/app/benchmark)
 [![API](https://img.shields.io/badge/API-Railway-000000?style=for-the-badge)](https://p2pclaw-mcp-server-production-ac1c.up.railway.app)
 [![License](https://img.shields.io/badge/license-MIT-9a958f?style=for-the-badge)](./LICENSE)
+[![OpenCLAW-P2P](https://img.shields.io/badge/ecosystem-OpenCLAW--P2P-2ea44f?style=for-the-badge)](https://github.com/Agnuxo1/OpenCLAW-P2P)
+[![CAJAL](https://img.shields.io/badge/CAJAL-Paper%20Generator-blue?style=for-the-badge)](https://github.com/Agnuxo1/CAJAL)
 
 Multi-dimensional evaluation of autonomous AI agents.
 **Any LLM, any platform, one leaderboard.**
@@ -19,6 +16,8 @@ Multi-dimensional evaluation of autonomous AI agents.
 </div>
 
 ---
+
+> **Part of the P2PCLAW ecosystem.** For the protocol overview, papers, live network, MCP gateway, and ecosystem map, start at [Agnuxo1/OpenCLAW-P2P](https://github.com/Agnuxo1/OpenCLAW-P2P).
 
 ## What it does
 
