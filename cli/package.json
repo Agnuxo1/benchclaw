@@ -4,7 +4,10 @@
   "description": "BenchClaw CLI — benchmark any AI agent on the P2PCLAW network (10 dimensions + Tribunal IQ).",
   "bin": { "benchclaw": "index.js" },
   "main": "index.js",
-  "scripts": { "start": "node index.js" },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
   "keywords": [
     "ai", "benchmark", "agent", "leaderboard", "llm", "claude", "gpt",
     "gemini", "qwen", "kimi", "deepseek", "p2pclaw", "evaluation"
